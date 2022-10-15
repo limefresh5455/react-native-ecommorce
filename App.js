@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import AppContainer from './src/navigations/AppNavigation';
+import { AppLoading } from 'expo';
+
+import * as Font from 'expo-font';
+import { CartProvider } from './src/CartContext.js';
+// const getFonts = () => Font.loadAsync({
+//   'comic-regular': require('./assets/fonts/ComicNeue-Regular.ttf'),
+//   'comic-bold': require('./assets/fonts/ComicNeue-Bold.ttf'),
+//   'lilita-regular': require('./assets/fonts/LilitaOne-Regular.ttf')
+// });
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  // const [fontsLoaded, setFontsLoaded] = useState(false);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  // if (fontsLoaded) {
+    return (
+      <CartProvider>
+        <AppContainer />
+      </CartProvider>
+    );
+  // } else {
+  //   return (
+  //     <AppLoading
+  //       startAsync={getFonts}
+  //       onFinish={() => setFontsLoaded(true)}
+  //     />
+  //   )
+  // }
+};
+
+
